@@ -1,0 +1,104 @@
+@import "../Variables.scss";
+
+.ContextMenuContainer {
+	z-index: 1000;
+	filter: drop-shadow(0 0 5px black);
+
+	background-color: lighten($secondaryBG, 5%);
+	border-radius: 5px;
+
+	.ContextMenu {
+		.ContextMenuItem {
+			padding: 7.5px;
+			margin: 7.5px;
+			border-radius: 5px;
+
+			cursor: pointer;
+
+			&:hover {
+				background: lighten($primaryBG, 5%);
+			}
+
+			&.HasSubMenu {
+				position: relative;
+
+				.ContextSubMenuChevron {
+					position: absolute;
+					display: inline-block;
+					
+					filter: invert(85%);
+					
+					width: 12px;
+					right: 8px;
+					bottom: 8px;
+				}
+
+				.ContextMenuContainer.SubMenuContainer {
+					position: fixed;
+
+					margin-top: -35px;
+					margin-left: 85%;
+					margin-right: -85%;
+
+					width: 100%;
+
+					cursor: default;
+
+					display: table-caption;
+
+					.ContextMenu.SubMenu {
+						
+					}
+				}
+			}
+
+			&.ToggleItem {
+				position: relative;
+
+				width: calc(100% + 20px);
+
+				.ToggleBox {
+					position: absolute;
+
+					display: inline-block;
+					border: 2px solid white;
+					border-radius: 100%;
+
+					width: 12px;
+					height: 12px;
+					
+					top: 10px;
+					right: 12px;
+
+					.ToggleBoxTick {
+						$m: 2px;
+
+						display: inline-block;
+						position: absolute;
+						border-radius: 100%;
+
+						top: $m; left: $m; bottom: $m; right: $m;
+						background-color: lighten($primaryColor, 20%);
+
+						transform: scale(0);
+						transition: transform $ft;
+					}
+
+					&.Checked {
+						.ToggleBoxTick {
+							transform: scale(1);
+						}
+					}
+				}
+			}
+		}
+
+		.ContextMenuDivider {
+			background: lighten($primaryBG, 5%);
+
+			padding: 2px;
+			margin: 7.5px;
+			border-radius: 5px;
+		}
+	}
+}

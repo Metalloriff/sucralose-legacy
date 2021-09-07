@@ -1,0 +1,121 @@
+@import "../Variables.scss";
+
+.PostPage {
+	width: 100%;
+	height: fit-content;
+
+	.Image {
+		background-color: $tertiaryBG;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+	
+		width: 100vw;
+		height: calc(100vh - 70px);
+	}
+
+	.PostButtonList {
+		margin: 0 30%;
+
+		.Votes {
+			display: flex;
+			margin: 20px 0;
+
+			.Button {
+				width: 100%;
+				margin: 0 20px;
+				
+				&:first-child { margin-left: 0; }
+				&:last-child { margin-right: 0; }
+
+				transition: transform $ft;
+				&:hover { transform: scale(1.1); }
+
+				&.Voted {
+					background: $tertiaryBG;
+					color: $primaryColor;
+				}
+			}
+		}
+
+		.Button {
+			background: $secondaryBG;
+			text-align: center;
+			cursor: pointer;
+			
+			margin: 20px 0;
+			padding: 10px;
+			border-radius: 5px;
+		}
+	}
+
+	.DescriptionContainer {
+		margin: 20px 30%;
+		padding: 20px;
+		border-radius: 5px;
+		background: $secondaryBG;
+	}
+
+	.InfoTab {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		margin-top: 25px;
+
+		.InfoItem {
+			display: flex;
+			width: 550px;
+			margin: 10px;
+
+			span {
+				width: 100%;
+				text-transform: capitalize;
+			}
+
+			.ILabel {
+				font-weight: bolder;
+				text-align: left;
+			}
+
+			.IContent {
+				font-weight: lighter;
+				color: rgba(white, 0.8);
+				text-align: right;
+				
+				-moz-user-select: text;
+				-webkit-user-select: text;
+			}
+		}
+	}
+}
+
+.SetContextMenuItem {
+	border-left: 3px solid $secondaryBG;
+
+	&.Added {
+		background-color: $secondaryColor;
+		border-color: $primaryColor;
+
+		&:hover {
+			background-color: $primaryColor !important;
+		}
+	}
+}
+
+.Mobile .PostPage {
+	.TabItem {
+		padding: 0;
+		padding-bottom: 20px;
+	}
+
+	.DescriptionContainer {
+		margin: 20px;
+	}
+
+	.InfoTab {
+		.InfoItem {
+			width: 90vw;
+		}
+	}
+}

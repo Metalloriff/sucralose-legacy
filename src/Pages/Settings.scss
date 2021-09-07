@@ -1,0 +1,165 @@
+@import "../Variables.scss";
+
+.SettingsPage {
+	.SHeader {
+		font-size: 2.5rem;
+		font-weight: bolder;
+		text-align: center;
+		
+		margin-top: 50px;
+		margin-bottom: 25px;
+	}
+
+	.SItems {
+		margin: 0 30vw;
+
+		.SList {
+			margin: 25px 0;
+			padding: 20px;
+			border-radius: $primaryBorderRadius;
+	
+			background: $secondaryBG;
+	
+			.SListTitle {
+				font-size: 1.2rem;
+				font-weight: bold;
+	
+				margin-bottom: 15px;
+			}
+
+			.SListNote {
+				font-size: 1rem;
+				font-weight: lighter;
+
+				opacity: 0.5;
+			}
+	
+			.SListItems {
+				&.TagsList {
+					margin-bottom: 15px;
+
+					.SListItem {
+						display: inline-block;
+						margin: 5px;
+					}
+				}
+	
+				.SListItem {
+					margin: 5px 0;
+					
+					.EntryTitle {
+						font-weight: bold;
+						margin-top: 15px;
+						margin-bottom: 5px;
+					}
+					
+					.ColorPreview {
+						position: absolute;
+						
+						width: 5px;
+						height: 36px;
+						border-top-left-radius: $primaryBorderRadius;
+						border-bottom-left-radius: $primaryBorderRadius;
+					}
+	
+					.Entry {
+						padding: 10px;
+						border-radius: $primaryBorderRadius;
+	
+						background: $tertiaryBG;
+						color: white;
+						
+						border: none;
+						outline: none;
+						
+						width: max-content;
+		
+						.XButton {
+							display: inline-block;
+	
+							margin-left: 5px;
+							padding-left: 5px;
+							padding-right: 5px;
+	
+							color: white;
+	
+							cursor: pointer;
+	
+							&:hover {
+								color: #bf616a;
+							}
+						}
+					}
+				}
+	
+				.SListPlaceholder {
+					opacity: 0.5;
+				}
+			}
+	
+			.SListControls {
+				display: flex;
+	
+				.SListControl {
+					display: inline-block;
+	
+					padding: 10px;
+					border-radius: $primaryBorderRadius;
+	
+					background: $tertiaryBG;
+					color: white;
+	
+					&:not(input) {
+						margin-left: 20px;
+						width: 20%;
+					
+						text-align: center;
+						cursor: pointer;
+					}
+				}
+	
+				input.SListControl {
+					border: none;
+					outline: none;
+	
+					padding: 12px;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.SSerializers {
+		display: flex;
+		margin-bottom: 20px;
+		justify-content: center;
+
+		.Button {
+			display: inline-block;
+
+			padding: 10px;
+			border-radius: $primaryBorderRadius;
+
+			background: $tertiaryBG;
+			color: white;
+
+			&:not(input) {
+				margin-left: 20px;
+				width: 20%;
+			
+				text-align: center;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.Mobile .SettingsPage {
+	.SItems {
+		margin: 0 10px;
+	}
+
+	.SHeader {
+		font-size: 2rem;
+	}
+}

@@ -1,0 +1,262 @@
+@import "./Variables.scss";
+
+html {
+	background-color: $primaryBG;
+	color: white;
+
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	overflow-x: hidden;
+	
+	--primary-color: #7bb1bd;
+	--secondary-color: #BD7BA2;
+	
+	--primary-bg: #2c3946;
+	--secondary-bg: #364758;
+	--tertiary-bg: #42566a;
+	
+	--primary-border-radius: 4px;
+	--secondary-border-radius: 7px;
+	--post-column-count: 7;
+	--mobile-post-column-count: 2;
+	
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	
+	&::-webkit-scrollbar-track {
+		background-color: rgba(black, 0.5);
+	}
+	
+	&::-webkit-scrollbar-thumb {
+		background-color: $primaryColor;
+		border-radius: 100px;
+	}
+}
+
+#root {
+	.Spinner {
+		@keyframes spinner {
+			0% { transform: rotateZ(0deg) }
+			100% { transform: rotateZ(360deg) }
+		}
+
+		animation-name: spinner;
+		animation-duration: 1s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+	}
+
+	.Dropdown {
+		width: 200px;
+
+		position: absolute;
+		top: 0; left: -210px; bottom: -1px;
+	}
+
+	.Mobile {
+		.Header {
+			height: 140px;
+
+			.HeaderMain {
+				font-size: 7vw;
+				line-height: 45px;
+			}
+
+			.SearchBarContainer {
+				top: 75px;
+			}
+		}
+	}
+
+	.ModalContainer .Modal .LoginModalContainer {
+		position: relative;
+	
+		.LoginModal {
+			background-color: $primaryBG;
+			border-radius: 10px;
+			padding: 25px;
+	
+			transform: translateY(calc(50vh - 50%));
+	
+			display: flex;
+			flex-direction: column;
+		
+			.Label {
+				margin-bottom: 20px;
+			}
+		
+			.Field {
+				background-color: $secondaryBG;
+				color: white;
+	
+				border: none;
+				outline: none;
+	
+				display: block;
+	
+				border-radius: 5px;
+				padding: 10px;
+				margin: 10px;
+			}
+		
+			.Buttons {
+				display: flex;
+	
+				.Button {
+					width: 100%;
+					border-radius: 5px;
+					background-color: $secondaryBG;
+	
+					padding: 10px;
+					margin: 10px;
+	
+					text-align: center;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	a {
+		color: $primaryColor;
+
+		&:visited {
+			color: $secondaryColor;
+		}
+	}
+}
+
+.Header {
+	background-color: $secondaryBG;
+
+	position: relative;
+	height: 70px;
+
+	.SidebarIcon {
+		display: inline-block;
+		
+		position: absolute;
+		left: 15px;
+		top: 15px;
+
+		width: 40px;
+		height: 40px;
+
+		filter: invert(100%);
+		cursor: pointer;
+
+		transform: none;
+		transition: transform $ft;
+
+		z-index: 501;
+
+		&.Open {
+			transform: rotateZ(-90deg);
+
+			position: fixed;
+		}
+	}
+
+	.HeaderMain {
+		font-size: 2rem;
+
+		position: absolute;
+		left: 70px;
+		top: 10px;
+	}
+}
+
+.Main {
+	min-height: 100vh;
+}
+
+.Footer {
+	background-color: $secondaryBG;
+	height: 50px;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	.Divider {
+		margin: 0 10px;
+		border-radius: 2px;
+		
+		background-color: $primaryHover;
+		width: 2px;
+		height: 60%;
+	}
+}
+
+.SidebarContainer {
+	position: fixed;
+	top: 0; left: 0; bottom: 0; right: 0;
+
+	z-index: 500;
+	background-color: transparent;
+
+	transition: background-color $ft;
+
+	pointer-events: none;
+
+	overflow: hidden;
+
+	.Sidebar {
+		position: fixed;
+		top: 0; left: 0; bottom: 0; right: 70vw;
+
+		padding: 20px;
+		padding-top: 70px;
+
+		transform: translateX(-100%);
+		transition: transform $ft;
+
+		background-color: $primaryBG;
+
+		.SidebarButton {
+			font-size: 1.5rem;
+			margin: 5px;
+			padding: 10px 15px;
+
+			cursor: pointer;
+			
+			will-change: background-color;
+			transition: background-color $ft;
+			
+			border-radius: 5px;
+			
+			> .Icon {
+				margin-right: 10px;
+			}
+
+			&:hover {
+				background-color: rgba(white, 0.1);
+			}
+		}
+	}
+
+	&.Open {
+		background-color: rgba(black, 0.8);
+		pointer-events: all;
+		
+		.Sidebar {
+			transform: none;
+		}
+	}
+}
+
+.Link {
+	color: $primaryColor;
+	cursor: pointer;
+
+	&:hover {
+		border-bottom: 1px solid $primaryColor;
+	}
+}
+
+.Mobile .SidebarContainer {
+	.Sidebar {
+		right: 20vw;
+	}
+}

@@ -1,0 +1,197 @@
+@import "../Variables.scss";
+
+.ModalContainer {
+	background-color: rgba(black, 0.8);
+
+	display: flex;
+	align-content: center;
+	justify-content: center;
+
+	position: fixed;
+	top: 0; left: 0; bottom: 0; right: 0;
+	opacity: 0;
+
+	transition: opacity $t;
+
+	pointer-events: none;
+
+	z-index: 1000;
+
+	.Modal {
+		position: absolute;
+		top: 0; left: 0; bottom: 0; right: 0;
+
+		display: flex;
+		align-content: center;
+		justify-content: center;
+
+		> :first-child {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.ClipboardModal {
+			overflow: hidden;
+			color: white;
+			font-size: 1.5rem;
+	
+			padding: 20px;
+			border-radius: $primaryBorderRadius;
+
+			height: 30px;
+		}
+
+		.ImageModal {
+			width: 90vw;
+			height: 90vh;
+			
+			img {
+				width: 100%;
+				height: 100%;
+				
+				object-fit: contain;
+			}
+			
+			.ArrowsContainer {
+				position: absolute;
+				top: 0; left: 0; bottom: 0; right: 0;
+				
+				.Arrow {
+					position: absolute;
+					font-size: 10rem;
+					
+					top: 50%;
+					transform: translateY(-50%);
+					filter: drop-shadow(0 0 10px black);
+					
+					padding: 0 50px;
+					
+					&.Right {
+						right: 0;
+					}
+
+					cursor: pointer;
+					opacity: 0.5;
+					transition: opacity $ft;
+					
+					&:Hover {
+						opacity: 1;
+					}
+				}
+			}
+		}
+		
+		.BoolModal, .StringModal {
+			position: relative;
+			font-size: 1.5rem;
+
+			width: 400px;
+			height: max-content;
+
+			padding: 20px;
+			border-radius: $primaryBorderRadius;
+			
+			.Title {
+				position: absolute;
+				top: 5px;
+				width: 400px;
+				text-align: center;
+				
+				font-weight: bolder;
+			}
+			
+			.Description {
+				margin: 15px 0;
+			}
+			
+			.Field {
+				outline: none;
+				border: none;
+				width: 380px;
+				padding: 10px;
+				margin-bottom: 5px;
+				border-radius: $primaryBorderRadius;
+				
+				color: white;
+			}
+			
+			.Footer {
+				display: flex;
+				flex-direction: row;
+				
+				.Button {
+					background: $primaryColor;
+					flex-grow: 100;
+					
+					text-align: center;
+					border-radius: $primaryBorderRadius;
+					
+					font-weight: bolder;
+					margin-top: 10px;
+					padding: 5px;
+
+					cursor: pointer;
+					
+					&:First-Child { margin-right: 10px; }
+					&:Last-Child { margin-left: 10px; }
+				}
+			}
+		}
+		
+		&.Closing {
+			animation-name: modalDetach !important;
+			animation-duration: 300ms;
+			animation-timing-function: ease-out;
+			animation-play-state: running;
+			
+			transform: scale(0);
+		}
+	}
+
+	&.Active {
+		opacity: 1;
+
+		pointer-events: all;
+
+		.Modal {
+			animation-name: modalAttach;
+			animation-duration: 300ms;
+			animation-timing-function: ease-in;
+			animation-play-state: running;
+		}
+	}
+
+	@keyframes modalAttach {
+		0% { transform: scale(0) }
+		100% { transform: scale(1) }
+	}
+
+	@keyframes modalDetach {
+		0% { transform: scale(1) }
+		100% { transform: scale(0) }
+	}
+}
+
+.LoadingModal {
+	position: relative;
+	
+	width: 250px;
+	height: 270px;
+	padding: 20px 0;
+	
+	border-radius: $secondaryBorderRadius;
+	
+	.LoadingCrescentContainer {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+	.Title {
+		position: absolute;
+		left: 0; bottom: 10px; right: 0;
+		
+		text-align: center;
+	}
+}

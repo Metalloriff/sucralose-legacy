@@ -1,0 +1,111 @@
+@import "../Variables.scss";
+
+#root .Post {
+	position: relative;
+	height: calc(1300px / var(--post-column-count));
+
+	border-radius: 5px;
+	overflow: hidden;
+	cursor: pointer;
+	
+	.InlineLoadingContainer {
+		position: absolute;
+		top: 0; left: 0; bottom: 0; right: 0;
+		
+		font-size: 1.25em;
+	}
+
+	.Preview {
+		width: 100%;
+		height: 100%;
+		
+		object-fit: cover;
+	}
+
+	.Details {
+		position: absolute;
+		left: 0; right: 0;
+		padding: 5px;
+
+		background: $overlay;
+		display: flex;
+		cursor: default;
+
+		transition: transform $ft;
+
+		.LinkWrapper {
+			color: white;
+			cursor: pointer;
+			
+			margin-left: auto;
+			white-space: nowrap;
+		}
+	}
+
+	.PostHeader {
+		top: 0;
+		transform: translateY(-100%);
+
+		.ContextMenuWrapper {
+			display: inline;
+		}
+	}
+
+	.PostFooter {
+		bottom: 0;
+		transform: translateY(100%);
+
+		> span {
+			margin-right: 10px;
+			cursor: pointer;
+
+			transition: transform $ft;
+
+			&:hover { transform: scale(1.1); }
+			&.Voted { color: $secondaryColor; }
+			
+			white-space: nowrap;
+		}
+
+		.Button {
+			color: $primaryColor;
+			margin-left: auto;
+			padding: 3px 5px;
+			border-radius: 5px;
+			font-size: 0.8rem;
+			cursor: pointer;
+
+			white-space: nowrap;
+
+			background: $secondaryBG;
+
+			&:hover {
+				color: white;
+			}
+		}
+	}
+
+	&:hover {
+		.Details {
+			transform: none;
+		}
+	}
+}
+
+#root .Mobile {
+	.PostList {
+		grid-template-columns: repeat(var(--mobile-post-column-count), 1fr);
+	}
+	
+	.Post {
+		height: calc(50vh / var(--mobile-post-column-count));
+		
+		.Details {
+			transform: none;
+		}
+
+		.PostFooter span {
+			white-space: unset;
+		}
+	}
+}

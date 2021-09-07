@@ -1,0 +1,41 @@
+@import "../Variables.scss";
+
+.PostTags {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
+
+	.CategoryLabel {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: center;
+		margin: 10px;
+
+		> b {
+			font-size: 1.2rem;
+
+			margin-top: 25px;
+			margin-bottom: 5px;
+		}
+	
+		.Tag {
+			color: $secondaryColor;
+			cursor: pointer;
+
+			transition: color $ft;
+
+			&:hover {
+				color: $primaryColor;
+			}
+		}
+	
+		.TagPlaceholder {
+			opacity: 0.5;
+		}
+	}
+
+	margin-bottom: 50px;
+}

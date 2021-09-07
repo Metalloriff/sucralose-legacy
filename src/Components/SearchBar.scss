@@ -1,0 +1,106 @@
+@import "../Variables.scss";
+
+.SearchBarContainer {
+	$p: 15px;
+	position: absolute;
+	top: $p; left: calc(100% - 55px); bottom: $p; right: $p;
+
+	transition: left $t;
+
+	.SearchBar {
+		min-width: 20px;
+		padding: 10px;
+		border-radius: 5px;
+		
+		background-color: $tertiaryBG;
+		color: white;
+		
+		border: none;
+		outline: none;
+	}
+
+	> img {
+		position: absolute;
+		top: 0; right: 0; bottom: 0;
+		width: 25px;
+		margin: 8px;
+
+		pointer-events: none;
+		cursor: pointer;
+
+		opacity: 0.2;
+		transition: opacity $t;
+		
+		filter: invert(1);
+	}
+
+	.AutoComplete {
+		opacity: 0;
+		transition: opacity $t;
+
+		position: relative;
+		z-index: 100;
+
+		.Result {
+			background-color: $tertiaryBG;
+			color: white;
+			padding: 10px;
+
+			display: flex;
+			cursor: pointer;
+
+			.Title {
+				width: 100%;
+				font-weight: 600;
+			}
+
+			.Count {
+				color: $primaryColor;
+				font-weight: bolder;
+				margin-right: 5px;
+			}
+
+			&:first-child {
+				margin-top: -5px;
+			}
+
+			&:last-child {
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+
+			&:hover {
+				background-color: $secondaryColor;
+			}
+		}
+	}
+	
+	&.Focused {
+		left: 50%;
+
+		> img {
+			opacity: 0.8;
+
+			pointer-events: all;
+
+			&:hover { opacity: 1 }
+		}
+	}
+}
+
+#root .Mobile .Header {
+	.HeaderMain {
+		position: absolute;
+		left: 0; right: 0;
+		
+		text-align: center;
+	}
+	
+	.Dropdown {
+		display: none;
+	}
+	
+	.SearchBarContainer {
+		left: 15px;
+	}
+}

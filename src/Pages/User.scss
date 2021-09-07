@@ -1,0 +1,22 @@
+@import "../Variables.scss";
+
+.UserPage {
+	.Head {
+		display: flex;
+		background: $tertiaryBG;
+		padding: 20px;
+
+		.AvatarContainer {
+
+		}
+
+		.Username {
+			font-size: 2rem;
+			font-weight: bolder;
+		}
+
+		.About {
+			opacity: 0.6;
+		}
+	}
+}

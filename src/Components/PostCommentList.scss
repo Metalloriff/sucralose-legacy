@@ -1,0 +1,82 @@
+@import "../Variables.scss";
+
+.Comments {
+	margin: 50px;
+
+	.Comment {
+		display: flex;
+
+		-moz-user-select: text;
+		-webkit-user-select: text;
+
+		.Avatar {
+			min-width: 100px;
+			height: 100px;
+
+			border-radius: 5px;
+			margin: 20px;
+
+			background-color: $tertiaryBG;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			cursor: pointer;
+
+			&.Placeholder {
+				background-image: url(https://static1.e621.net/data/preview/37/4e/374e667ef02ee81226e4938b637d86b7.jpg);
+
+				cursor: not-allowed;
+				filter: grayscale(100%);
+			}
+		}
+
+		.Inner {
+			margin-top: 20px;
+
+			.Username {
+				color: $primaryColor;
+				cursor: pointer;
+
+				margin-bottom: 10px;
+			}
+
+			.Timestamp {
+				color: rgba(white, 0.3);
+				margin-left: 20px;
+			}
+	
+			.Content {
+				margin-top: 20px;
+
+				blockquote {
+					background: $tertiaryBG;
+					border-radius: 5px;
+
+					margin: 0;
+					padding: 10px 30px;
+				}
+			}
+		}
+	}
+}
+
+.Mobile .Comments {
+	margin: 0;
+
+	.Comment {
+		.Avatar {
+			min-width: 50px;
+			height: 50px;
+		}
+		.Timestamp {
+			display: block;
+			margin: 0;
+		}
+
+		.Content {
+			margin-right: 20px;
+			font-size: 0.8rem;
+		}
+	}
+}

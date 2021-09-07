@@ -1,0 +1,97 @@
+﻿@import "../Variables";
+
+.TooltipContainer {
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity $ft;
+  
+  z-index: 100;
+  
+  .TooltipArrow {
+    background-color: $primaryColor;
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+    transform: rotateZ(45deg);
+  }
+  
+  .Tooltip {
+    background-color: $primaryColor;
+
+    position: absolute;
+
+    padding: 10px;
+    border-radius: $primaryBorderRadius;
+
+    white-space: nowrap;
+    font-size: 1.1em;
+    
+    .TooltipHint {
+      font-weight: bolder;
+      opacity: 0.3;
+    }
+  }
+
+  &.up {
+    .Tooltip {
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .TooltipArrow {
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) rotateZ(45deg);
+    }
+  }
+  
+  &.left {
+    .Tooltip {
+      right: 30px;
+      bottom: 0;
+      transform: translateY(25%);
+    }
+    
+    .TooltipArrow {
+      right: 25px;
+      bottom: 0;
+    }
+  }
+
+  &.right {
+    .Tooltip {
+      left: 30px;
+      bottom: -100%;
+      transform: translateY(25%);
+    }
+
+    .TooltipArrow {
+      left: 25px;
+      bottom: -100%;
+    }
+  }
+
+  &.down {
+    .Tooltip {
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .TooltipArrow {
+      top: 15px;
+    }
+  }
+}
+
+.HasTooltip {
+  position: relative;
+  
+  &:Hover > .TooltipContainer {
+    opacity: 1;
+  }
+}
